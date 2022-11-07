@@ -6,7 +6,7 @@
 1. [Описание проекта](#Описание-проекта)
    1. [USER](#USER)
        1. [GET /post (Get List)](#GET-post-Get-List)
-       2. [POST /post/create (Create Post)](#POST-post-create-Create-Post)
+       2. [POST /post/create (Create Post)](#post-postcreate-create-post)
 2. [Майнд-карта](#Майнд-карта)
 3. [Тест-кейсы](#Тест-кейсы)
 4. [Баг-репорты](#Баг-репорты)
