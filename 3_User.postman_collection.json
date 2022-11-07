@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "7a60ab60-c754-4ba0-b07a-0e6574ba2b67",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21909379"
+	},
+	"item": [
+		{
+			"name": "GetUserList",
+			"item": [
+				{
+					"name": "GetUserList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserList(POST)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserList(page=0)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user?page=0",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserList(page=asf)",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreateUser",
+			"item": [
+				{
+					"name": "CreateUser(withoutFirstName)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"ms\",\r\n    \"lastName\": \"Andersen\",\r\n    \"picture\": \"https://randomuser.me/api/portraits/women/58.jpg\",\r\n    \"gender\": \"female\",\r\n    \"email\": \"sara.andersen@example.com\",\r\n    \"dateOfBirth\": \"1996-04-30T19:26:49.610Z\",\r\n    \"phone\": \"92694011\",\r\n    \"location\": {\r\n        \"street\": \"9614, SÃ¸ndermarksvej\",\r\n        \"city\": \"Kongsvinger\",\r\n        \"state\": \"Nordjylland\",\r\n        \"country\": \"Denmark\",\r\n        \"timezone\": \"-9:00\"\r\n    },\r\n    \"registerDate\": \"2021-06-21T21:02:07.374Z\",\r\n    \"updatedDate\": \"2021-06-21T21:02:07.374Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser(FirstName = f)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"ms\",\r\n    \"firstName\": \"f\",\r\n    \"lastName\": \"Andersen\",\r\n    \"picture\": \"https://randomuser.me/api/portraits/women/58.jpg\",\r\n    \"gender\": \"female\",\r\n    \"email\": \"sara.andersen@example.com\",\r\n    \"dateOfBirth\": \"1996-04-30T19:26:49.610Z\",\r\n    \"phone\": \"92694011\",\r\n    \"location\": {\r\n        \"street\": \"9614, SÃ¸ndermarksvej\",\r\n        \"city\": \"Kongsvinger\",\r\n        \"state\": \"Nordjylland\",\r\n        \"country\": \"Denmark\",\r\n        \"timezone\": \"-9:00\"\r\n    },\r\n    \"registerDate\": \"2021-06-21T21:02:07.374Z\",\r\n    \"updatedDate\": \"2021-06-21T21:02:07.374Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser(FirstName = fd)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"ms\",\r\n    \"firstName\": \"fd\",\r\n    \"lastName\": \"Andersen\",\r\n    \"picture\": \"https://randomuser.me/api/portraits/women/58.jpg\",\r\n    \"gender\": \"female\",\r\n    \"email\": \"sara.andersen@example.com\",\r\n    \"dateOfBirth\": \"1996-04-30T19:26:49.610Z\",\r\n    \"phone\": \"92694011\",\r\n    \"location\": {\r\n        \"street\": \"9614, SÃ¸ndermarksvej\",\r\n        \"city\": \"Kongsvinger\",\r\n        \"state\": \"Nordjylland\",\r\n        \"country\": \"Denmark\",\r\n        \"timezone\": \"-9:00\"\r\n    },\r\n    \"registerDate\": \"2021-06-21T21:02:07.374Z\",\r\n    \"updatedDate\": \"2021-06-21T21:02:07.374Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{app-id}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "app-id",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

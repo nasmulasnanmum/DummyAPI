@@ -1,0 +1,524 @@
+{
+	"info": {
+		"_postman_id": "3978051c-d68e-44f5-9006-a5e5737fd468",
+		"name": "Lesson4_USER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21909379"
+	},
+	"item": [
+		{
+			"name": "GetUserList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is okay\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Check body data is array\", function () {\r",
+							"    pm.expect(jsonData.data).to.be.a('array');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body data[0].id is string\", function () {\r",
+							"    pm.expect(jsonData.data[0].id).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body data[0].email is undefined\", function () {\r",
+							"    pm.expect(jsonData.data[0].email).to.be.a('undefined');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body data[0].title is string\", function () {\r",
+							"    pm.expect(jsonData.data[0].title).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body data[0].firstName is string\", function () {\r",
+							"    pm.expect(jsonData.data[0].firstName).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body data[0].lastName is string\", function () {\r",
+							"    pm.expect(jsonData.data[0].lastName).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body data[0].picture is string\", function () {\r",
+							"    pm.expect(jsonData.data[0].picture).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body data[19].id is string\", function () {\r",
+							"    pm.expect(jsonData.data[19].id).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body data[20] is undefined\", function () {\r",
+							"    pm.expect(jsonData.data[20]).to.be.a('undefined');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check limit is 20\", function () {\r",
+							"    pm.expect(jsonData.limit).to.eql(20);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check page is 0\", function () {\r",
+							"    pm.expect(jsonData.page).to.eql(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body total is number\", function () {\r",
+							"    pm.expect(jsonData.total).to.be.a('number');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is okay\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set(\"userID\", jsonData.id);\r",
+							"\r",
+							"pm.test(\"Check body title\", function () {\r",
+							"    pm.expect(jsonData.title).to.eql(\"ms\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body firstName\", function () {\r",
+							"    pm.expect(jsonData.firstName).to.eql(\"Sara\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body lastName\", function () {\r",
+							"    pm.expect(jsonData.lastName).to.eql(\"Andersen\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body picture\", function () {\r",
+							"    pm.expect(jsonData.picture).to.eql(\"https://randomuser.me/api/portraits/women/58.jpg\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body gender\", function () {\r",
+							"    pm.expect(jsonData.gender).to.eql(\"female\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body dateOfBirth\", function () {\r",
+							"    pm.expect(jsonData.dateOfBirth).to.eql(\"1996-04-30T19:26:49.610Z\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body phone\", function () {\r",
+							"    pm.expect(jsonData.phone).to.eql(\"92694011\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body street\", function () {\r",
+							"    pm.expect(jsonData.location.street).to.eql(\"9614, SÃ¸ndermarksvej\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body city\", function () {\r",
+							"    pm.expect(jsonData.location.city).to.eql(\"Kongsvinger\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body state\", function () {\r",
+							"    pm.expect(jsonData.location.state).to.eql(\"Nordjylland\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body country\", function () {\r",
+							"    pm.expect(jsonData.location.country).to.eql(\"Denmark\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body timezone\", function () {\r",
+							"    pm.expect(jsonData.location.timezone).to.eql(\"-9:00\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body email is string\", function () {\r",
+							"    pm.expect(jsonData.email).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body id is string\", function () {\r",
+							"    pm.expect(jsonData.id).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body registerDate is string\", function () {\r",
+							"    pm.expect(jsonData.registerDate).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body updatedDate is string\", function () {\r",
+							"    pm.expect(jsonData.updatedDate).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"ms\",\r\n    \"firstName\": \"Sara\",    \r\n    \"lastName\": \"Andersen\",\r\n    \"picture\": \"https://randomuser.me/api/portraits/women/58.jpg\",\r\n    \"gender\": \"female\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"dateOfBirth\": \"1996-04-30T19:26:49.610Z\",\r\n    \"phone\": \"92694011\",\r\n    \"location\": {\r\n        \"street\": \"9614, SÃ¸ndermarksvej\",\r\n        \"city\": \"Kongsvinger\",\r\n        \"state\": \"Nordjylland\",\r\n        \"country\": \"Denmark\",\r\n        \"timezone\": \"-9:00\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/create",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is okay\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							" var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set(\"userID\", jsonData.id);\r",
+							"\r",
+							"pm.test(\"Check body title\", function () {\r",
+							"    pm.expect(jsonData.title).to.eql(\"ms\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body firstName\", function () {\r",
+							"    pm.expect(jsonData.firstName).to.eql(\"Sara\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body lastName\", function () {\r",
+							"    pm.expect(jsonData.lastName).to.eql(\"Andersen\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body picture\", function () {\r",
+							"    pm.expect(jsonData.picture).to.eql(\"https://randomuser.me/api/portraits/women/58.jpg\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body gender\", function () {\r",
+							"    pm.expect(jsonData.gender).to.eql(\"female\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body dateOfBirth\", function () {\r",
+							"    pm.expect(jsonData.dateOfBirth).to.eql(\"1996-04-30T19:26:49.610Z\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body phone\", function () {\r",
+							"    pm.expect(jsonData.phone).to.eql(\"92694011\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body street\", function () {\r",
+							"    pm.expect(jsonData.location.street).to.eql(\"9614, SÃ¸ndermarksvej\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body city\", function () {\r",
+							"    pm.expect(jsonData.location.city).to.eql(\"Kongsvinger\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body state\", function () {\r",
+							"    pm.expect(jsonData.location.state).to.eql(\"Nordjylland\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body country\", function () {\r",
+							"    pm.expect(jsonData.location.country).to.eql(\"Denmark\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body timezone\", function () {\r",
+							"    pm.expect(jsonData.location.timezone).to.eql(\"-9:00\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body email is string\", function () {\r",
+							"    pm.expect(jsonData.email).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body id is string\", function () {\r",
+							"    pm.expect(jsonData.id).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body registerDate is string\", function () {\r",
+							"    pm.expect(jsonData.registerDate).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body updatedDate is string\", function () {\r",
+							"    pm.expect(jsonData.updatedDate).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/user/{{userID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"{{userID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is okay\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							" var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set(\"userID\", jsonData.id);\r",
+							"\r",
+							"pm.test(\"Check body title\", function () {\r",
+							"    pm.expect(jsonData.title).to.eql(\"mr\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body firstName\", function () {\r",
+							"    pm.expect(jsonData.firstName).to.eql(\"Boris\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body lastName\", function () {\r",
+							"    pm.expect(jsonData.lastName).to.eql(\"Konchai\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body picture\", function () {\r",
+							"    pm.expect(jsonData.picture).to.eql(\"https://randomuser.me/api/portraits/women/58.jpg\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body gender\", function () {\r",
+							"    pm.expect(jsonData.gender).to.eql(\"female\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body dateOfBirth\", function () {\r",
+							"    pm.expect(jsonData.dateOfBirth).to.eql(\"1996-04-30T19:26:49.610Z\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body phone\", function () {\r",
+							"    pm.expect(jsonData.phone).to.eql(\"92694011\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body street\", function () {\r",
+							"    pm.expect(jsonData.location.street).to.eql(\"9614, SÃ¸ndermarksvej\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body city\", function () {\r",
+							"    pm.expect(jsonData.location.city).to.eql(\"Kongsvinger\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body state\", function () {\r",
+							"    pm.expect(jsonData.location.state).to.eql(\"Nordjylland\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body country\", function () {\r",
+							"    pm.expect(jsonData.location.country).to.eql(\"Denmark\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body timezone\", function () {\r",
+							"    pm.expect(jsonData.location.timezone).to.eql(\"-9:00\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body email is string\", function () {\r",
+							"    pm.expect(jsonData.email).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body id is string\", function () {\r",
+							"    pm.expect(jsonData.id).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body registerDate is string\", function () {\r",
+							"    pm.expect(jsonData.registerDate).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check body updatedDate is string\", function () {\r",
+							"    pm.expect(jsonData.updatedDate).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"mr\",\r\n    \"firstName\": \"Boris\",\r\n    \"lastName\": \"Konchai\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/{{userID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"{{userID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is okay\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(pm.collectionVariables.get(\"userID\"));\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/user/{{userID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"{{userID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{app-id}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "app-id",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userID",
+			"value": ""
+		}
+	]
+}
